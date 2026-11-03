@@ -1,0 +1,111 @@
+
+/* Identidade visual do EducaWeb */
+
+:root {
+    --cor-primaria: #183B66;
+    --cor-secundaria: #2878C8;
+    --cor-destaque: #F2A93B;
+    --cor-fundo: #F5F8FC;
+    --cor-texto: #263445;
+}
+
+/* Configurações gerais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    margin: 0;
+}
+
+/* Títulos */
+h1, h2, h3, h4 {
+    color: var(--cor-primaria);
+}
+
+/* Botões personalizados */
+.btn-educa {
+    background-color: var(--cor-secundaria);
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.btn-educa:hover {
+    background-color: var(--cor-primaria);
+    color: white;
+}
+
+/* Carrossel */
+
+.imagem-carrossel {
+    height: 450px;
+    object-fit: cover;
+    filter: brightness(55%);
+}
+
+.carousel-caption {
+    bottom: 25%;
+}
+
+.carousel-caption h2 {
+    color: white;
+    font-size: 2.3rem;
+    font-weight: bold;
+}
+
+.carousel-caption p {
+    color: white;
+    font-size: 1.1rem;
+}
+
+/* Responsividade do carrossel */
+
+@media (max-width: 768px) {
+
+    .imagem-carrossel {
+        height: 300px;
+    }
+
+    .carousel-caption {
+        bottom: 10%;
+    }
+
+    .carousel-caption h2 {
+        font-size: 1.3rem;
+    }
+
+    .carousel-caption p {
+        font-size: 0.85rem;
+    }
+
+}
+
+/* Cards de cursos */
+
+.imagem-card {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12) !important;
+}
+
+.card .btn {
+    background-color: var(--cor-secundaria);
+    border: none;
+}
+
+.card .btn:hover {
+    background-color: var(--cor-primaria);
+}

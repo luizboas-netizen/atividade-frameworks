@@ -1,0 +1,869 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EducaWeb | Tailwind CSS</title>
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- ================================= -->
+    <!-- 1. NAVBAR RESPONSIVA              -->
+    <!-- ================================= -->
+
+    <header class="bg-blue-900 text-white shadow-md">
+
+        <nav class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+
+            <a href="#inicio" class="text-2xl font-bold">
+                EducaWeb
+            </a>
+
+            <!-- Menu desktop -->
+            <div class="hidden md:flex items-center gap-8">
+
+                <a href="#inicio" class="hover:text-yellow-400 transition">
+                    Início
+                </a>
+
+                <a href="#cursos" class="hover:text-yellow-400 transition">
+                    Cursos
+                </a>
+
+                <a href="#tabela" class="hover:text-yellow-400 transition">
+                    Programação
+                </a>
+
+                <a href="#contato" class="hover:text-yellow-400 transition">
+                    Contato
+                </a>
+
+                <button
+                    type="button"
+                    onclick="abrirModal()"
+                    class="bg-yellow-400 text-blue-900 px-5 py-2 rounded-lg font-semibold hover:bg-yellow-300 transition"
+                >
+                    Sobre nós
+                </button>
+
+            </div>
+
+            <!-- Botão mobile -->
+            <button
+                id="botaoMenu"
+                type="button"
+                class="md:hidden text-3xl"
+                aria-label="Abrir menu"
+                aria-expanded="false"
+                aria-controls="menuMobile"
+            >
+                ☰
+            </button>
+
+        </nav>
+
+        <!-- Menu mobile -->
+        <div id="menuMobile" class="hidden md:hidden px-4 pb-4">
+
+            <a href="#inicio" class="block py-2 hover:text-yellow-400">
+                Início
+            </a>
+
+            <a href="#cursos" class="block py-2 hover:text-yellow-400">
+                Cursos
+            </a>
+
+            <a href="#tabela" class="block py-2 hover:text-yellow-400">
+                Programação
+            </a>
+
+            <a href="#contato" class="block py-2 hover:text-yellow-400">
+                Contato
+            </a>
+
+            <button
+                type="button"
+                onclick="abrirModal()"
+                class="mt-2 bg-yellow-400 text-blue-900 px-5 py-2 rounded-lg font-semibold"
+            >
+                Sobre nós
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================================= -->
+    <!-- CONTEÚDO PRINCIPAL                -->
+    <!-- ================================= -->
+
+    <main>
+
+        <!-- ================================= -->
+        <!-- 2. CARROSSEL                      -->
+        <!-- ================================= -->
+
+        <section id="inicio" aria-label="Apresentação da EducaWeb">
+
+            <div id="carrossel" class="relative h-[350px] md:h-[450px] overflow-hidden">
+
+                <!-- Slide 1 -->
+                <div class="slide absolute inset-0">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1400"
+                        alt="Estudante estudando em uma mesa"
+                        class="w-full h-full object-cover"
+                    >
+
+                    <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center px-6">
+
+                        <h1 class="text-white text-2xl md:text-4xl font-bold mb-4">
+                            Aprenda algo novo todos os dias
+                        </h1>
+
+                        <p class="text-white text-sm md:text-lg">
+                            Invista no seu conhecimento e transforme seu futuro.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="slide hidden absolute inset-0">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1400"
+                        alt="Grupo de estudantes trabalhando juntos"
+                        class="w-full h-full object-cover"
+                    >
+
+                    <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center px-6">
+
+                        <h2 class="text-white text-2xl md:text-4xl font-bold mb-4">
+                            Aprenda no seu próprio ritmo
+                        </h2>
+
+                        <p class="text-white text-sm md:text-lg">
+                            Tenha acesso a conteúdos de qualidade onde estiver.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="slide hidden absolute inset-0">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1400"
+                        alt="Pessoa utilizando computador para estudar"
+                        class="w-full h-full object-cover"
+                    >
+
+                    <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center px-6">
+
+                        <h2 class="text-white text-2xl md:text-4xl font-bold mb-4">
+                            Prepare-se para o mercado de trabalho
+                        </h2>
+
+                        <p class="text-white text-sm md:text-lg">
+                            Desenvolva habilidades para conquistar novas oportunidades.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- Botão anterior -->
+                <button
+                    id="slideAnterior"
+                    type="button"
+                    aria-label="Slide anterior"
+                    class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/60 text-white text-3xl rounded-full w-12 h-12"
+                >
+                    &#10094;
+                </button>
+
+                <!-- Botão próximo -->
+                <button
+                    id="slideProximo"
+                    type="button"
+                    aria-label="Próximo slide"
+                    class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/60 text-white text-3xl rounded-full w-12 h-12"
+                >
+                    &#10095;
+                </button>
+
+                <!-- Indicadores -->
+                <div class="absolute bottom-5 left-0 right-0 flex justify-center gap-3">
+
+                    <button
+                        class="indicador w-3 h-3 rounded-full bg-yellow-400"
+                        data-slide="0"
+                        aria-label="Ir para slide 1"
+                        aria-current="true"
+                    ></button>
+
+                    <button
+                        class="indicador w-3 h-3 rounded-full bg-white/60"
+                        data-slide="1"
+                        aria-label="Ir para slide 2"
+                    ></button>
+
+                    <button
+                        class="indicador w-3 h-3 rounded-full bg-white/60"
+                        data-slide="2"
+                        aria-label="Ir para slide 3"
+                    ></button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================= -->
+        <!-- 3. CARDS DE CURSOS                 -->
+        <!-- ================================= -->
+
+        <section id="cursos" class="max-w-7xl mx-auto px-4 py-16">
+
+            <div class="text-center mb-10">
+
+                <h2 class="text-3xl font-bold text-blue-900 mb-3">
+                    Nossos cursos
+                </h2>
+
+                <p class="text-slate-600">
+                    Conheça algumas das oportunidades de aprendizado disponíveis.
+                </p>
+
+            </div>
+
+            <!-- Grid responsivo -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Card 1 -->
+                <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800"
+                        alt="Pessoa estudando programação em um computador"
+                        class="w-full h-48 object-cover"
+                    >
+
+                    <div class="p-6">
+
+                        <span class="text-sm font-semibold text-blue-700">
+                            Tecnologia
+                        </span>
+
+                        <h3 class="text-xl font-bold mt-2 mb-3">
+                            Desenvolvimento Web
+                        </h3>
+
+                        <p class="text-slate-600 mb-5">
+                            Aprenda a criar sites e aplicações utilizando as principais tecnologias web.
+                        </p>
+
+                        <a
+                            href="#contato"
+                            class="inline-block bg-blue-900 text-white px-5 py-2 rounded-lg hover:bg-blue-800 transition"
+                        >
+                            Saiba mais
+                        </a>
+
+                    </div>
+
+                </article>
+
+                <!-- Card 2 -->
+                <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800"
+                        alt="Profissionais trabalhando em equipe"
+                        class="w-full h-48 object-cover"
+                    >
+
+                    <div class="p-6">
+
+                        <span class="text-sm font-semibold text-blue-700">
+                            Negócios
+                        </span>
+
+                        <h3 class="text-xl font-bold mt-2 mb-3">
+                            Gestão Empresarial
+                        </h3>
+
+                        <p class="text-slate-600 mb-5">
+                            Desenvolva habilidades de gestão, planejamento e organização de negócios.
+                        </p>
+
+                        <a
+                            href="#contato"
+                            class="inline-block bg-blue-900 text-white px-5 py-2 rounded-lg hover:bg-blue-800 transition"
+                        >
+                            Saiba mais
+                        </a>
+
+                    </div>
+
+                </article>
+
+                <!-- Card 3 -->
+                <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800"
+                        alt="Pessoa analisando dados em um computador"
+                        class="w-full h-48 object-cover"
+                    >
+
+                    <div class="p-6">
+
+                        <span class="text-sm font-semibold text-blue-700">
+                            Dados
+                        </span>
+
+                        <h3 class="text-xl font-bold mt-2 mb-3">
+                            Análise de Dados
+                        </h3>
+
+                        <p class="text-slate-600 mb-5">
+                            Aprenda a interpretar informações e transformar dados em decisões.
+                        </p>
+
+                        <a
+                            href="#contato"
+                            class="inline-block bg-blue-900 text-white px-5 py-2 rounded-lg hover:bg-blue-800 transition"
+                        >
+                            Saiba mais
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================= -->
+        <!-- 4. TABELA RESPONSIVA               -->
+        <!-- ================================= -->
+
+        <section id="tabela" class="bg-white py-16">
+
+            <div class="max-w-7xl mx-auto px-4">
+
+                <div class="text-center mb-10">
+
+                    <h2 class="text-3xl font-bold text-blue-900 mb-3">
+                        Programação dos cursos
+                    </h2>
+
+                    <p class="text-slate-600">
+                        Confira alguns dos cursos disponíveis e suas respectivas cargas horárias.
+                    </p>
+
+                </div>
+
+                <!-- Permite rolagem horizontal em telas pequenas -->
+                <div class="overflow-x-auto rounded-lg shadow-md">
+
+                    <table class="w-full text-left border-collapse">
+
+                        <thead class="bg-blue-900 text-white">
+
+                            <tr>
+
+                                <th scope="col" class="px-6 py-4">
+                                    Curso
+                                </th>
+
+                                <th scope="col" class="px-6 py-4">
+                                    Categoria
+                                </th>
+
+                                <th scope="col" class="px-6 py-4">
+                                    Duração
+                                </th>
+
+                                <th scope="col" class="px-6 py-4">
+                                    Modalidade
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr class="bg-slate-50 border-b">
+                                <td class="px-6 py-4">Desenvolvimento Web</td>
+                                <td class="px-6 py-4">Tecnologia</td>
+                                <td class="px-6 py-4">40 horas</td>
+                                <td class="px-6 py-4">Online</td>
+                            </tr>
+
+                            <tr class="bg-white border-b">
+                                <td class="px-6 py-4">Gestão Empresarial</td>
+                                <td class="px-6 py-4">Negócios</td>
+                                <td class="px-6 py-4">30 horas</td>
+                                <td class="px-6 py-4">Online</td>
+                            </tr>
+
+                            <tr class="bg-slate-50 border-b">
+                                <td class="px-6 py-4">Análise de Dados</td>
+                                <td class="px-6 py-4">Dados</td>
+                                <td class="px-6 py-4">50 horas</td>
+                                <td class="px-6 py-4">Híbrido</td>
+                            </tr>
+
+                            <tr class="bg-white border-b">
+                                <td class="px-6 py-4">Marketing Digital</td>
+                                <td class="px-6 py-4">Marketing</td>
+                                <td class="px-6 py-4">25 horas</td>
+                                <td class="px-6 py-4">Online</td>
+                            </tr>
+
+                            <tr class="bg-slate-50">
+                                <td class="px-6 py-4">Design Gráfico</td>
+                                <td class="px-6 py-4">Design</td>
+                                <td class="px-6 py-4">35 horas</td>
+                                <td class="px-6 py-4">Presencial</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================= -->
+        <!-- 5. FORMULÁRIO                     -->
+        <!-- ================================= -->
+
+        <section id="contato" class="max-w-3xl mx-auto px-4 py-16">
+
+            <div class="text-center mb-10">
+
+                <h2 class="text-3xl font-bold text-blue-900 mb-3">
+                    Entre em contato
+                </h2>
+
+                <p class="text-slate-600">
+                    Preencha o formulário para receber mais informações.
+                </p>
+
+            </div>
+
+            <form
+                id="formContato"
+                class="bg-white p-6 md:p-8 rounded-xl shadow-md space-y-5"
+            >
+
+                <!-- Nome -->
+                <div>
+
+                    <label for="nome" class="block font-semibold mb-2">
+                        Nome completo
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nome"
+                        name="nome"
+                        required
+                        minlength="3"
+                        placeholder="Digite seu nome"
+                        class="w-full border border-slate-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    >
+
+                </div>
+
+                <!-- Email -->
+                <div>
+
+                    <label for="email" class="block font-semibold mb-2">
+                        E-mail
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        placeholder="exemplo@email.com"
+                        class="w-full border border-slate-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    >
+
+                </div>
+
+                <!-- Telefone -->
+                <div>
+
+                    <label for="telefone" class="block font-semibold mb-2">
+                        Telefone
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="telefone"
+                        name="telefone"
+                        required
+                        minlength="8"
+                        placeholder="(00) 00000-0000"
+                        class="w-full border border-slate-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    >
+
+                </div>
+
+                <!-- Mensagem -->
+                <div>
+
+                    <label for="mensagem" class="block font-semibold mb-2">
+                        Mensagem
+                    </label>
+
+                    <textarea
+                        id="mensagem"
+                        name="mensagem"
+                        rows="4"
+                        required
+                        minlength="10"
+                        placeholder="Digite sua mensagem..."
+                        class="w-full border border-slate-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    ></textarea>
+
+                </div>
+
+                <!-- Botão enviar -->
+                <button
+                    type="submit"
+                    class="w-full bg-blue-900 text-white font-semibold py-3 rounded-lg hover:bg-blue-800 transition"
+                >
+                    Enviar mensagem
+                </button>
+
+            </form>
+
+            <p
+                id="mensagemSucesso"
+                role="status"
+                aria-live="polite"
+                class="hidden mt-5 bg-green-100 text-green-800 p-4 rounded-lg text-center"
+            >
+                Sua mensagem foi enviada com sucesso!
+            </p>
+
+        </section>
+
+
+        <!-- ================================= -->
+        <!-- 6. MODAL                          -->
+        <!-- ================================= -->
+
+        <div
+            id="modal"
+            class="hidden fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="tituloModal"
+            aria-hidden="true"
+        >
+
+            <div class="bg-white rounded-xl shadow-xl max-w-lg w-full p-6 relative">
+
+                <!-- Botão fechar -->
+                <button
+                    id="fecharModal"
+                    type="button"
+                    onclick="fecharModal()"
+                    aria-label="Fechar modal"
+                    class="absolute top-3 right-4 text-2xl text-slate-500 hover:text-red-600"
+                >
+                    &times;
+                </button>
+
+                <h2
+                    id="tituloModal"
+                    class="text-2xl font-bold text-blue-900 mb-4"
+                >
+                    Sobre a EducaWeb
+                </h2>
+
+                <p class="text-slate-600 leading-relaxed mb-6">
+                    A EducaWeb é uma plataforma educacional criada para
+                    aproximar estudantes de oportunidades de aprendizado.
+                    Nosso objetivo é incentivar o desenvolvimento pessoal
+                    e profissional por meio da educação.
+                </p>
+
+                <button
+                    type="button"
+                    onclick="fecharModal()"
+                    class="bg-blue-900 text-white px-5 py-2 rounded-lg hover:bg-blue-800 transition"
+                >
+                    Fechar
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- ================================= -->
+    <!-- RODAPÉ                            -->
+    <!-- ================================= -->
+
+    <footer class="bg-blue-900 text-white text-center py-6">
+
+        <div class="max-w-7xl mx-auto px-4">
+
+            <h3 class="text-xl font-bold mb-2">
+                EducaWeb
+            </h3>
+
+            <p class="text-sm">
+                Aprendizado que transforma o futuro.
+            </p>
+
+            <p class="text-xs mt-3 text-blue-200">
+                &copy; 2026 EducaWeb. Todos os direitos reservados.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================================= -->
+    <!-- JAVASCRIPT                        -->
+    <!-- ================================= -->
+
+    <script>
+
+        // =================================
+        // MENU MOBILE
+        // =================================
+
+        const botaoMenu = document.getElementById("botaoMenu");
+        const menuMobile = document.getElementById("menuMobile");
+
+        botaoMenu.addEventListener("click", function () {
+
+            menuMobile.classList.toggle("hidden");
+
+            const aberto = !menuMobile.classList.contains("hidden");
+
+            botaoMenu.setAttribute("aria-expanded", aberto);
+
+            botaoMenu.setAttribute(
+                "aria-label",
+                aberto ? "Fechar menu" : "Abrir menu"
+            );
+
+        });
+
+
+        // Fecha o menu mobile ao clicar em um link
+
+        menuMobile.querySelectorAll("a").forEach(function (link) {
+
+            link.addEventListener("click", function () {
+
+                menuMobile.classList.add("hidden");
+
+                botaoMenu.setAttribute("aria-expanded", "false");
+
+                botaoMenu.setAttribute("aria-label", "Abrir menu");
+
+            });
+
+        });
+
+
+        // =================================
+        // CARROSSEL
+        // =================================
+
+        const slides = document.querySelectorAll(".slide");
+
+        const indicadores = document.querySelectorAll(".indicador");
+
+        const botaoAnterior = document.getElementById("slideAnterior");
+
+        const botaoProximo = document.getElementById("slideProximo");
+
+        let slideAtual = 0;
+
+
+        // Exibe o slide selecionado
+
+        function mostrarSlide(indice) {
+
+            slides[slideAtual].classList.add("hidden");
+
+            indicadores[slideAtual].classList.remove("bg-yellow-400");
+            indicadores[slideAtual].classList.add("bg-white/60");
+            indicadores[slideAtual].removeAttribute("aria-current");
+
+            slideAtual = indice;
+
+            slides[slideAtual].classList.remove("hidden");
+
+            indicadores[slideAtual].classList.remove("bg-white/60");
+            indicadores[slideAtual].classList.add("bg-yellow-400");
+            indicadores[slideAtual].setAttribute("aria-current", "true");
+
+        }
+
+
+        // Próximo slide
+
+        botaoProximo.addEventListener("click", function () {
+
+            const proximo = (slideAtual + 1) % slides.length;
+
+            mostrarSlide(proximo);
+
+        });
+
+
+        // Slide anterior
+
+        botaoAnterior.addEventListener("click", function () {
+
+            const anterior = (slideAtual - 1 + slides.length) % slides.length;
+
+            mostrarSlide(anterior);
+
+        });
+
+
+        // Indicadores
+
+        indicadores.forEach(function (indicador) {
+
+            indicador.addEventListener("click", function () {
+
+                const indice = Number(indicador.dataset.slide);
+
+                mostrarSlide(indice);
+
+            });
+
+        });
+
+
+        // =================================
+        // FORMULÁRIO
+        // =================================
+
+        const formulario = document.getElementById("formContato");
+
+        const mensagemSucesso = document.getElementById("mensagemSucesso");
+
+        formulario.addEventListener("submit", function (evento) {
+
+            // Impede o recarregamento da página
+            evento.preventDefault();
+
+            // Mostra mensagem de sucesso
+            mensagemSucesso.classList.remove("hidden");
+
+            // Limpa os campos
+            formulario.reset();
+
+        });
+
+
+        // =================================
+        // MODAL
+        // =================================
+
+        const modal = document.getElementById("modal");
+
+        const botaoFecharModal = document.getElementById("fecharModal");
+
+
+        // Abre o modal
+
+        function abrirModal() {
+
+            modal.classList.remove("hidden");
+
+            modal.setAttribute("aria-hidden", "false");
+
+            document.body.classList.add("overflow-hidden");
+
+            botaoFecharModal.focus();
+
+        }
+
+
+        // Fecha o modal
+
+        function fecharModal() {
+
+            modal.classList.add("hidden");
+
+            modal.setAttribute("aria-hidden", "true");
+
+            document.body.classList.remove("overflow-hidden");
+
+        }
+
+
+        // Fecha ao clicar no fundo escuro
+
+        modal.addEventListener("click", function (evento) {
+
+            if (evento.target === modal) {
+
+                fecharModal();
+
+            }
+
+        });
+
+
+        // Fecha ao pressionar ESC
+
+        document.addEventListener("keydown", function (evento) {
+
+            if (evento.key === "Escape" && !modal.classList.contains("hidden")) {
+
+                fecharModal();
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>
