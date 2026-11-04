@@ -1,5 +1,5 @@
 
-/* Identidade visual do EducaWeb */
+
 
 :root {
     --cor-primaria: #183B66;
@@ -9,7 +9,7 @@
     --cor-texto: #263445;
 }
 
-/* Configurações gerais */
+
 body {
     font-family: Arial, sans-serif;
     background-color: var(--cor-fundo);
@@ -17,12 +17,12 @@ body {
     margin: 0;
 }
 
-/* Títulos */
+
 h1, h2, h3, h4 {
     color: var(--cor-primaria);
 }
 
-/* Botões personalizados */
+
 .btn-educa {
     background-color: var(--cor-secundaria);
     color: white;
@@ -37,7 +37,6 @@ h1, h2, h3, h4 {
     color: white;
 }
 
-/* Carrossel */
 
 .imagem-carrossel {
     height: 450px;
@@ -60,7 +59,7 @@ h1, h2, h3, h4 {
     font-size: 1.1rem;
 }
 
-/* Responsividade do carrossel */
+
 
 @media (max-width: 768px) {
 
@@ -82,7 +81,7 @@ h1, h2, h3, h4 {
 
 }
 
-/* Cards de cursos */
+
 
 .imagem-card {
     height: 200px;
